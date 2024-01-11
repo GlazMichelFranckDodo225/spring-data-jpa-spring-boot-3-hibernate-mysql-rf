@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -46,6 +48,11 @@ public class Product {
     private BigDecimal price;
     private boolean active;
     private String imageUrl;
+    // @CreationTimestamp and @UpdateTimestamp
+    // To Hibernate Automatically gets the Timestamp Value from the
+    // JVM and Assigns Values to the Filed
+    @CreationTimestamp
     private LocalDateTime dateCreated;
+    @UpdateTimestamp
     private LocalDateTime lastUpdated;
 }
