@@ -27,7 +27,16 @@ import java.time.LocalDateTime;
         }
 )
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "product_generator" // To Manually Specify Sequence - Optional
+    )
+    @SequenceGenerator( // To Manually Specify Sequence - Optional
+            name = "product_generator",
+            sequenceName = "product_sequence_name",
+            allocationSize = 1
+    )
     private Long id;
     @Column(name = "stock_keeping_unit", nullable = false)
     private String sku;
