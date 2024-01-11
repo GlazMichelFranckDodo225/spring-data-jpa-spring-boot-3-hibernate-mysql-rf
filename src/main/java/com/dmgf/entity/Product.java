@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
         }
 )
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "stock_keeping_unit", nullable = false)
     private String sku;
