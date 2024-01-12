@@ -50,7 +50,7 @@ public class Product {
     private String imageUrl;
     // @CreationTimestamp and @UpdateTimestamp
     // To Hibernate Automatically gets the Timestamp Value from the
-    // JVM and Assigns Values to the Filed
+    // JVM and Assigns Values to the Field
     @CreationTimestamp
     private LocalDateTime dateCreated;
     @UpdateTimestamp
