@@ -35,10 +35,36 @@ public class ProductRepositoryTest {
                 .build();
 
         // Save Product
+        // In this case, because "foundProduct" has any Primary Key yet, save()
+        // Method will internally call EntityManager persist() Method to
+        // Save "foundProduct"
         Product savedProduct = productRepository.save(product);
 
         // Display Product Info
         System.out.println(savedProduct.getId());
         System.out.println(savedProduct); // Use of toString() Method
+    }
+
+    // JUnit Test to Update Product using ProductRepository Save Method
+    @Test
+    @DisplayName("JUnit Test to Update Product using ProductRepository Save Method")
+    void updateUsingSaveMethod() {
+        // Retrieve Product by Id from the DB
+        Long productId = 1L;
+        Product foundProduct = productRepository.findById(productId).get();
+
+        // Update Retrieved Product
+        foundProduct.setName("Product 1 - Updated");
+        foundProduct.setDescription("Product 1 Description - Updated");
+
+        // Save Updated Product
+        // In this case, because "foundProduct" has a Primary Key yet, save()
+        // Method will internally call EntityManager merge() Method to
+        // Update "foundProduct"
+        Product updatedProduct = productRepository.save(foundProduct);
+
+        // Display Upadated Product Info
+        System.out.println(updatedProduct.getName());
+        System.out.println(updatedProduct.getDescription());
     }
 }
