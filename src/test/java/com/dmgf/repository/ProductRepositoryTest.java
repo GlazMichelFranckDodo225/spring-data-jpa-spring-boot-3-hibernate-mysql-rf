@@ -45,7 +45,7 @@ public class ProductRepositoryTest {
         System.out.println(savedProduct); // Use of toString() Method
     }
 
-    // JUnit Test to Update Product using ProductRepository Save Method
+    // JUnit Test to Update a Product using ProductRepository Save Method
     @Test
     @DisplayName("JUnit Test to Update Product using ProductRepository Save Method")
     void updateUsingSaveMethod() {
@@ -57,7 +57,7 @@ public class ProductRepositoryTest {
         foundProduct.setName("Product 1 - Updated");
         foundProduct.setDescription("Product 1 Description - Updated");
 
-        // Save Updated Product
+        // Save Updated a Product
         // In this case, because "foundProduct" has a Primary Key yet, save()
         // Method will internally call EntityManager merge() Method to
         // Update "foundProduct"
@@ -66,5 +66,20 @@ public class ProductRepositoryTest {
         // Display Upadated Product Info
         System.out.println(updatedProduct.getName());
         System.out.println(updatedProduct.getDescription());
+    }
+
+    // JUnit Test to Retrieve by Id a Single Product using
+    // ProductRepository "findById()" Method
+    @Test
+    @DisplayName("JUnit Test to Retrieve by Id a Single Product")
+    void findByIdMethod() {
+        // Retrieve Product by Id from the DB
+        // Typically this Id comes from Client
+        Long productId = 1L;
+        Product foundProduct = productRepository.findById(productId).get();
+
+        // Display Upadated Product Info
+        System.out.println(foundProduct.getName());
+        System.out.println(foundProduct.getDescription());
     }
 }
