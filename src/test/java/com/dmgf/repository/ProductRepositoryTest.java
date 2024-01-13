@@ -9,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 // To Load a full Application Context of the Application containing
 // all the Beans
@@ -78,8 +80,51 @@ public class ProductRepositoryTest {
         Long productId = 1L;
         Product foundProduct = productRepository.findById(productId).get();
 
-        // Display Upadated Product Info
+        // Display Found Product Info
         System.out.println(foundProduct.getName());
         System.out.println(foundProduct.getDescription());
+    }
+
+    // JUnit Test to Save Multiple Entities to the DB
+    @Test
+    @DisplayName("JUnit Test to Save Multiple Entities to the DB")
+    void saveAllMethod() {
+        // Create 3 Products
+        Product product2 = Product.builder()
+                .name("Product 2")
+                .description("Product 2 Description")
+                .sku("200ABC")
+                .price(new BigDecimal(200))
+                .active(true)
+                .imageUrl("product2.png")
+                .build();
+
+        Product product3 = Product.builder()
+                .name("Product 3")
+                .description("Product 3 Description")
+                .sku("300ABC")
+                .price(new BigDecimal(300))
+                .active(true)
+                .imageUrl("product3.png")
+                .build();
+
+        Product product4 = Product.builder()
+                .name("Product 4")
+                .description("Product 4 Description")
+                .sku("400ABC")
+                .price(new BigDecimal(400))
+                .active(true)
+                .imageUrl("product4.png")
+                .build();
+
+        // Save All the 3 Products
+        List<Product> savedProducts = productRepository.saveAll(
+                List.of(product2, product3, product4)
+        );
+
+        // Display All Saved Products Info
+        for(Product product: savedProducts) {
+            System.out.println("Id : " + product.getId() + " - " + product.getName());
+        }
     }
 }
