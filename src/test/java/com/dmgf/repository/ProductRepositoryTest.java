@@ -127,4 +127,17 @@ public class ProductRepositoryTest {
             System.out.println("Id : " + product.getId() + " - " + product.getName());
         }
     }
+
+    // JUnit Test to Retrieve All the Entities to the DB
+    @Test
+    @DisplayName("JUnit Test to Retrieve All the Entities to the DB")
+    void findAllMethod() {
+        // Retrieve All the Entities to the DB
+        List<Product> products = productRepository.findAll();
+
+        // Display All Retrieved Products Info
+        products.forEach(product ->
+                System.out.println("Id : " + product.getId() + " - " + product.getName())
+        );
+    }
 }
