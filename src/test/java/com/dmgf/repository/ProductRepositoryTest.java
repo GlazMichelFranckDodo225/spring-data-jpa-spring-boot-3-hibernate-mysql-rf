@@ -180,7 +180,24 @@ public class ProductRepositoryTest {
                 System.out.println(product.getId()));
     }
 
-    // JUnit Test for deleteAll() Method - Delete All the Entities From the Database Table
+    // JUnit Test for deleteAll() Method - FIRST WAY - Delete All the Entities From
+    // the Database Table
+    @Test
+    @DisplayName("JUnit Test for deleteAll() Method")
+    void deleteAllMethodFirstWay() {
+        List<Product> productsBeforeDeleting = productRepository.findAll();
+        productsBeforeDeleting.forEach(product ->
+                System.out.println(product.getId()));
+
+        productRepository.deleteAll();
+
+        List<Product> productsAfterDeleting = productRepository.findAll();
+        productsAfterDeleting.forEach(product ->
+                System.out.println(product.getId()));
+    }
+
+    // JUnit Test for deleteAll() Method - SECOND WAY - Delete All the Entities
+    // From the Database Table
     @Test
     @DisplayName("JUnit Test for deleteAll() Method")
     void deleteAllMethod() {
@@ -188,7 +205,11 @@ public class ProductRepositoryTest {
         productsBeforeDeleting.forEach(product ->
                 System.out.println(product.getId()));
 
-        productRepository.deleteAll();
+        Product product1 = productRepository.findById(5L).get();
+        Product product2 = productRepository.findById(6L).get();
+        Product product3 = productRepository.findById(7L).get();
+
+        productRepository.deleteAll(List.of(product1, product2, product3));
 
         List<Product> productsAfterDeleting = productRepository.findAll();
         productsAfterDeleting.forEach(product ->
