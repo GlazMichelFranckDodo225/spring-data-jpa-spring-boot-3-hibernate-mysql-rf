@@ -179,4 +179,19 @@ public class ProductRepositoryTest {
         productsAfterDeleting.forEach(product ->
                 System.out.println(product.getId()));
     }
+
+    // JUnit Test for deleteAll() Method - Delete All the Entities From the Database Table
+    @Test
+    @DisplayName("JUnit Test for deleteAll() Method")
+    void deleteAllMethod() {
+        List<Product> productsBeforeDeleting = productRepository.findAll();
+        productsBeforeDeleting.forEach(product ->
+                System.out.println(product.getId()));
+
+        productRepository.deleteAll();
+
+        List<Product> productsAfterDeleting = productRepository.findAll();
+        productsAfterDeleting.forEach(product ->
+                System.out.println(product.getId()));
+    }
 }
