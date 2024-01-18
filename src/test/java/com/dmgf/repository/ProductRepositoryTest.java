@@ -141,7 +141,7 @@ public class ProductRepositoryTest {
         );
     }
 
-    // JUnit Test for deleteById() - Delete a Single Entity from the Database
+    // JUnit Test for deleteById() Method - Delete a Single Entity from the Database
     @Test
     @DisplayName("JUnit Test for deleteById() Method - Delete a Single Entity from the Database")
     void deleteByIdMethod() {
@@ -150,11 +150,33 @@ public class ProductRepositoryTest {
         Long productId = 4L;
 
         List<Product> productsBeforeDeleting = productRepository.findAll();
-        productsBeforeDeleting.forEach(product -> System.out.println(product.getId()));
+        productsBeforeDeleting.forEach(product ->
+                System.out.println(product.getId()));
 
         productRepository.deleteById(productId);
 
         List<Product> productsAfterDeleting = productRepository.findAll();
-        productsAfterDeleting.forEach(product -> System.out.println(product.getId()));
+        productsAfterDeleting.forEach(product ->
+                System.out.println(product.getId()));
+    }
+
+    // JUnit Test for delete() Method - Delete a Single Entity from the Database
+    @Test
+    @DisplayName("JUnit Test for delete() Method - Delete an Entity from the Database")
+    void deleteMethod() {
+        // Retrieve Product by Id from the DB
+        // Typically this Id comes from Client
+        Long productId = 3L;
+        Product foundProduct = productRepository.findById(productId).get();
+
+        List<Product> productsBeforeDeleting = productRepository.findAll();
+        productsBeforeDeleting.forEach(product ->
+                System.out.println(product.getId()));
+
+        productRepository.delete(foundProduct);
+
+        List<Product> productsAfterDeleting = productRepository.findAll();
+        productsAfterDeleting.forEach(product ->
+                System.out.println(product.getId()));
     }
 }
