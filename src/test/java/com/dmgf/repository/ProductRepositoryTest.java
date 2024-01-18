@@ -140,4 +140,21 @@ public class ProductRepositoryTest {
                 System.out.println("Id : " + product.getId() + " - " + product.getName())
         );
     }
+
+    // JUnit Test for deleteById() - Delete a Single Entity from the Database
+    @Test
+    @DisplayName("JUnit Test for deleteById() Method - Delete a Single Entity from the Database")
+    void deleteByIdMethod() {
+        // Retrieve Product by Id from the DB
+        // Typically this Id comes from Client
+        Long productId = 4L;
+
+        List<Product> productsBeforeDeleting = productRepository.findAll();
+        productsBeforeDeleting.forEach(product -> System.out.println(product.getId()));
+
+        productRepository.deleteById(productId);
+
+        List<Product> productsAfterDeleting = productRepository.findAll();
+        productsAfterDeleting.forEach(product -> System.out.println(product.getId()));
+    }
 }
