@@ -215,4 +215,13 @@ public class ProductRepositoryTest {
         productsAfterDeleting.forEach(product ->
                 System.out.println(product.getId()));
     }
+
+    // JUnit Test for count() Method - Count all the Records into the Table
+    @Test
+    @DisplayName("JUnit Test for count() Method")
+    void countMethod() {
+        long numberOfDbRecords = productRepository.count();
+
+        System.out.println("There are " + numberOfDbRecords + " Records into the Table");
+    }
 }
