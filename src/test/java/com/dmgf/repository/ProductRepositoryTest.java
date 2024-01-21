@@ -224,4 +224,23 @@ public class ProductRepositoryTest {
 
         System.out.println("There are " + numberOfDbRecords + " Records into the Table");
     }
+
+    // JUnit Test for existsById() Method - Check if Entity Exists With Given ID in
+    // the Database Table
+    @Test
+    @DisplayName("JUnit Test for existsById() Method")
+    void existsByIdMethod() {
+        // Long productId = 8L;
+        Long productId = 15L;
+        boolean result = productRepository.existsById(productId);
+
+        if(result) {
+        System.out.println("The Product with Id " + productId + " is " +
+                        "Present into the Product Table");
+        }
+        else {
+        System.out.println("The Product with Id " + productId + " Does Not Exists " +
+                "into the Product Table");
+        }
+    }
 }
