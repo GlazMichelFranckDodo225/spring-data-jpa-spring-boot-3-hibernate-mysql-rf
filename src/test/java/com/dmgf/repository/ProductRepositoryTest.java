@@ -1,15 +1,12 @@
 package com.dmgf.repository;
 
 import com.dmgf.entity.Product;
-import com.dmgf.exception.ProductRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 // To Load a full Application Context of the Application containing
