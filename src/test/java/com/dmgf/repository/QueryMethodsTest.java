@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 public class QueryMethodsTest {
     @Autowired
@@ -33,5 +35,27 @@ public class QueryMethodsTest {
         Product product = productRepository.findById(productId).get();
 
         System.out.println(product);
+    }
+
+    // JUnit Test for 'findByNameOrDescriptionMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByNameOrDescriptionMethod()' Finder Method")
+    void findByNameOrDescriptionMethod() {
+        List<Product> products = productRepository.findByNameOrDescription(
+                "Product 2", "Product 2 Description"
+        );
+
+        products.forEach(product -> System.out.println(product));
+    }
+
+    // JUnit Test for 'findByNameAndDescriptionMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByNameAndDescriptionMethod()' Finder Method")
+    void findByNameAndDescriptionMethod() {
+        List<Product> products = productRepository.findByNameAndDescription(
+                "Product 4", "Product 4 Description"
+        );
+
+        products.forEach(product -> System.out.println(product));
     }
 }

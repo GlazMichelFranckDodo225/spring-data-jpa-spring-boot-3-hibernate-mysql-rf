@@ -3,6 +3,7 @@ package com.dmgf.repository;
 import com.dmgf.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -15,4 +16,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // Id as Search Criteria.
     // If no Product is Found, this Finder Method Returns an Empty Optional.
     Optional<Product> findById(Long id);
+    // Query Methods to Find or Retrieve a Product using its
+    // Fields as Search Criteria.
+    // If no Product is Found, these Finder Methods Return an Empty List.
+    List<Product> findByNameOrDescription(String name, String description);
+    List<Product> findByNameAndDescription(String name, String description);
+
 }
