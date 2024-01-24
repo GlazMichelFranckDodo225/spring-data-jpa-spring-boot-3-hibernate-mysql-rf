@@ -21,5 +21,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // If no Product is Found, these Finder Methods Return an Empty List.
     List<Product> findByNameOrDescription(String name, String description);
     List<Product> findByNameAndDescription(String name, String description);
+    // Query Method to Find or Retrieve a Distinct (or Unique) Product
+    // using its Name as Search Criteria.
+    // If no Product is Found, this Finder Method Returns "null".
+    Product findDistinctByName(String name);
 
 }

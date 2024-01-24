@@ -58,4 +58,13 @@ public class QueryMethodsTest {
 
         products.forEach(product -> System.out.println(product));
     }
+
+    // JUnit Test for 'findDistinctByNameMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findDistinctByNameMethod()' Finder Method")
+    void findDistinctByNameMethod() {
+        Product product = productRepository.findDistinctByName("Product 3");
+
+        System.out.println(product);
+    }
 }
