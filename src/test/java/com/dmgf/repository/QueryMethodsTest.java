@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @SpringBootTest
@@ -66,5 +67,15 @@ public class QueryMethodsTest {
         Product product = productRepository.findDistinctByName("Product 3");
 
         System.out.println(product);
+    }
+
+    // JUnit Test for 'findByPriceGreaterThanMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByPriceGreaterThanMethod()' Finder Method")
+    void findByPriceGreaterThanMethod() {
+        List<Product> products = productRepository
+                .findByPriceGreaterThan(new BigDecimal(100));
+
+        products.forEach(product -> System.out.println(product));
     }
 }

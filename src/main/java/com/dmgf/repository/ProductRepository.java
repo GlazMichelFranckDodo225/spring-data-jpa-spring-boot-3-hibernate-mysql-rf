@@ -3,6 +3,7 @@ package com.dmgf.repository;
 import com.dmgf.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,5 +26,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // using its Name as Search Criteria.
     // If no Product is Found, this Finder Method Returns "null".
     Product findDistinctByName(String name);
+    // Query Method to Find or Retrieve a Product whose Price is Greater
+    // given Price as Search Criteria.
+    // If no Product is Found, this Finder Method Returns "null".
+    List<Product> findByPriceGreaterThan(BigDecimal price);
 
 }
