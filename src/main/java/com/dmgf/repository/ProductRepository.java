@@ -26,9 +26,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // using its Name as Search Criteria.
     // If no Product is Found, this Finder Method Returns "null".
     Product findDistinctByName(String name);
-    // Query Method to Find or Retrieve a Product whose Price is Greater
+    // Query Method to Find or Retrieve a Product whose Price is Greater Than
     // given Price as Search Criteria.
     // If no Product is Found, this Finder Method Returns "null".
     List<Product> findByPriceGreaterThan(BigDecimal price);
+    // Query Method to Find or Retrieve a Product whose Price is Lesser Than
+    // given Price as Search Criteria.
+    // If no Product is Found, this Finder Method Returns "null".
+    List<Product> findByPriceLessThan(BigDecimal price);
 
 }

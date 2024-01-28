@@ -78,4 +78,14 @@ public class QueryMethodsTest {
 
         products.forEach(product -> System.out.println(product));
     }
+
+    // JUnit Test for 'findByPriceLessThanMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByPriceLessThanMethod()' Finder Method")
+    void findByPriceLessThanMethod() {
+        List<Product> products = productRepository
+                .findByPriceLessThan(new BigDecimal(400));
+
+        products.forEach(product -> System.out.println(product));
+    }
 }
