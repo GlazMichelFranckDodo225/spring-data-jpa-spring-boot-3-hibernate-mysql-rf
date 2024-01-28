@@ -98,4 +98,15 @@ public class QueryMethodsTest {
 
         products.forEach(product -> System.out.println(product));
     }
+
+    /*// JUnit Test for 'findByNameLikeMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByNameLikeMethod()' Finder Method")
+    void findByNameLikeMethod() {
+        List<Product> products = productRepository
+                .findByNameLike("product");
+        System.out.println("Trace");
+        System.out.println(products);
+        products.forEach(product -> System.out.println(product));
+    }*/
 }

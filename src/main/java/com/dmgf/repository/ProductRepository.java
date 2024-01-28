@@ -36,7 +36,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByPriceLessThan(BigDecimal price);
     // Query Method to Find or Retrieve Filtered Products that Match the
     // given Text as Search Criteria (Contains Check).
-    // If no Product is Found, this Finder Method Returns a Empty List.
+    // If no Product is Found, this Finder Method Returns an Empty List.
     List<Product> findByNameContaining(String text);
+    /*// Query Method to Find or Retrieve Filtered Products that Match the
+    // given Text as Search Criteria (SQL Like Condition).
+    // If no Product is Found, this Finder Method Returns an Empty List.
+    List<Product> findByNameLike(String pattern);*/
 
 }
