@@ -88,4 +88,14 @@ public class QueryMethodsTest {
 
         products.forEach(product -> System.out.println(product));
     }
+
+    // JUnit Test for 'findByNameContainingMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByNameContainingMethod()' Finder Method")
+    void findByNameContainingMethod() {
+        List<Product> products = productRepository
+                .findByNameContaining("product");
+
+        products.forEach(product -> System.out.println(product));
+    }
 }
