@@ -4,6 +4,7 @@ import com.dmgf.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,9 +39,15 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // given Text as Search Criteria (Contains Check).
     // If no Product is Found, this Finder Method Returns an Empty List.
     List<Product> findByNameContaining(String text);
-    /*// Query Method to Find or Retrieve Filtered Products that Match the
-    // given Text as Search Criteria (SQL Like Condition).
-    // If no Product is Found, this Finder Method Returns an Empty List.
-    List<Product> findByNameLike(String pattern);*/
+    /*// Query Method to Find or Retrieve Filtered Products Based on
+    // a Price Range as Search Criteria (startPrice and endPrice).
+    // If no Product is Found, this Finder Method Returns an Empty List.*/
+    List<Product> findByPriceBetween(BigDecimal startPrice, BigDecimal endPrice);
+    /*// Query Method to Find or Retrieve Filtered Products Based on
+    // a Date Range as Search Criteria (startDate and endDate).
+    // If no Product is Found, this Finder Method Returns an Empty List.*/
+    List<Product> findByDateCreatedBetween(
+            LocalDateTime startDate, LocalDateTime endDate
+    );
 
 }

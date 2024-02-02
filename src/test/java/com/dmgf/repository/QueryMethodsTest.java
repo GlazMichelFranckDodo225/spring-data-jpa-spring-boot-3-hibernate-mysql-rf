@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
@@ -109,4 +110,39 @@ public class QueryMethodsTest {
         System.out.println(products);
         products.forEach(product -> System.out.println(product));
     }*/
+
+    // JUnit Test for 'findByPriceBetweenMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByPriceBetweenMethod()' Finder Method")
+    void findByPriceBetweenMethod() {
+        BigDecimal startPrice = new BigDecimal(100);
+        BigDecimal endPrice = new BigDecimal(500);
+
+        List<Product> products = productRepository
+                .findByPriceBetween(startPrice, endPrice);
+
+        // products.forEach(product -> System.out.println(product));
+        products.forEach(System.out::println);
+    }
+
+    // JUnit Test for 'findByDateCreatedBetweenMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByDateCreatedBetweenMethod()' Finder Method")
+    void findByDateCreatedBetweenMethod() {
+        // Typically, We Can Pick Dates from DB
+        LocalDateTime starDate =
+                LocalDateTime.of(
+                2024, 01, 22,  00, 00, 00, 000000
+        );
+        LocalDateTime endDate =
+                LocalDateTime.of(
+                2024, 01, 24,  00, 00, 00, 000000
+        );
+
+        List<Product> products = productRepository
+                .findByDateCreatedBetween(starDate, endDate);
+
+        // products.forEach(product -> System.out.println(product));
+        products.forEach(System.out::println);
+    }
 }
