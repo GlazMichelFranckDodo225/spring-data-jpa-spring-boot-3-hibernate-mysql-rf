@@ -145,4 +145,15 @@ public class QueryMethodsTest {
         // products.forEach(product -> System.out.println(product));
         products.forEach(System.out::println);
     }
+
+    // JUnit Test for 'findByNameInMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findByNameInMethod()' Finder Method")
+    void findByNameInMethod() {
+        List<Product> products = productRepository.findByNameIn(
+                List.of("Product 2", "Product 3", "Product 4")
+        );
+
+        products.forEach(System.out::println);
+    }
 }
