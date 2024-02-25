@@ -104,4 +104,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
      * @return
      */
     List<Product> findByNameIn(List<String> names);
+    // Spring Data JPA Query Method - Limiting Query Results
+    List<Product> findFirst2ByOrderByNameAsc();
+    List<Product> findTop2ByOrderByPriceDesc();
 }

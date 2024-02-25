@@ -156,4 +156,22 @@ public class QueryMethodsTest {
 
         products.forEach(System.out::println);
     }
+
+    // JUnit Test for 'findFirst2ByOrderByNameAscMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findFirst2ByOrderByNameAscMethod()' Finder Method")
+    void findFirst2ByOrderByNameAscMethod() {
+        List<Product> products = productRepository.findFirst2ByOrderByNameAsc();
+
+        products.forEach(System.out::println);
+    }
+
+    // JUnit Test for 'findTop2ByOrderByPriceDescMethod()' Finder Method
+    @Test
+    @DisplayName("JUnit Test for 'findTop2ByOrderByPriceDescMethod()' Finder Method")
+    void findTop2ByOrderByPriceDescMethod() {
+        List<Product> products = productRepository.findTop2ByOrderByPriceDesc();
+
+        products.forEach(System.out::println);
+    }
 }
